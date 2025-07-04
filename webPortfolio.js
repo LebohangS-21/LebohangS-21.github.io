@@ -28,6 +28,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+// Initialize current year in footer
+document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// PDF viewer functionality
+document.querySelector('.view-pdf-btn').addEventListener('click', function() {
+    // In a real implementation, this would open a modal with the PDF
+    const pdfUrl = 'Nedbank project pp.pdf';
+    window.open(pdfUrl, '_blank');
+});
+
+// Contact button functionality
+document.querySelector('.contact-btn').addEventListener('click', function() {
+    document.location.href = 'index.html#contact';
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function() {
